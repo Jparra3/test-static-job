@@ -1,0 +1,13 @@
+<div class="containerFilter" *ngIf="filters.length!==0">
+  <div class="items" *ngFor="let filter of filters">
+      <p class="text" >
+       {{filter}}
+      </p>
+       <button class="close" (click)="deleteFilter(filter)">
+          <img src="/assets/images/icon-remove.svg" alt="icon" />
+      </button>
+  </div>
+  <button class="buttonClear" (click)="removeAllFilters()" >
+      Clear
+  </button>
+</div>

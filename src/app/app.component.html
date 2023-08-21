@@ -1,1 +1,14 @@
-<h1>hello</h1>
+<header>
+</header>
+<div class="container">
+  <app-job-filter></app-job-filter>
+  <div class="loading" *ngIf="loading">
+    Obteniendo información...
+  </div>
+ <div *ngIf="!loading && !messageError">
+  <app-job-list  *ngFor="let job of jobs" [job]="job" ></app-job-list>
+ </div>
+  <div class="error" *ngIf="messageError && !loading && jobs.length==0" >
+    {{messageError}}
+  </div>
+</div>

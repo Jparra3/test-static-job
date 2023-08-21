@@ -1,0 +1,36 @@
+<!-- <div class="containerList" [ngClass]="job.featured ? 'containerListFeatured' : ''"> -->
+<div class="containerList" [ngClass]="{containerListFeatured: job.featured}">
+  <div class="containerJobs">
+    <div class="image">
+      <img [src]="'/assets' + job.logo.substring(1)" alt="images" />
+    </div>
+    <div class="wrapper">
+        <div class="containerCompany">
+            <p class="companyName">{{job.company}}</p>
+            <div *ngIf="job.new" class="new">
+                <p class="companyNew">NEW!</p>
+            </div>
+            <div *ngIf="job.featured" class="featured">
+            <p class="featuredInfo">FEATURED</p>
+            </div>
+        </div>
+        <p class="title">
+          {{job.position}}
+        </p>
+        <div class="containerInfo">
+        <ul>
+          <li><p class="infoName">{{job.postedAt}}</p></li>
+          <li><p class="infoName">{{job.contract}}</p></li>
+          <li><p class="infoName">{{job.location}}</p></li>
+        </ul>
+        </div>
+    </div>
+  </div>
+  <div class="filters" >
+       <div class="filter" *ngFor="let lang of tools" (click)="setFilter(lang)">
+           <p class="text" >
+         {{lang}}
+           </p>
+       </div>
+  </div>
+</div>
